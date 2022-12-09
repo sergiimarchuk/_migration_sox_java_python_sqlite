@@ -12,7 +12,7 @@ list_groups = []
 def BeginFile():
         with open (file_log_name, 'a') as f: f.write ("---" + '\n')
         with open (file_log_name, 'a') as f: f.write ("- hosts: all" + '\n')
-        with open (file_log_name, 'a') as f: f.write ("  remote_user: e220314" + '\n')
+        with open (file_log_name, 'a') as f: f.write ("  remote_user: USER" + '\n')
         with open (file_log_name, 'a') as f: f.write ("  sudo: yes" + '\n')
         with open (file_log_name, 'a') as f: f.write ("  tasks:" + '\n')
 
