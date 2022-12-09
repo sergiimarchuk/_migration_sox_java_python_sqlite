@@ -1,4 +1,4 @@
-#!/home/e220314/sox-sqlite/python27/bin/python
+#!/home/sox-sqlite/python27/bin/python
 import socket
 import subprocess
 import os
