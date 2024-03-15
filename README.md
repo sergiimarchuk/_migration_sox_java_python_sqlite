@@ -10,25 +10,14 @@ This repository serves as a comprehensive toolkit designed to streamline the mig
    - Scripts for gathering data from remote servers undergoing decommissioning.
    - Collects system configurations, user details, and other relevant data from decommissioning servers.
 
-2. **Jump Server File Processing:**
+2. **Java GUI Tool for Data Filtering:**
+   - A Java-based graphical user interface (GUI) tool for filtering and processing collected data.
+   - Allows users to interactively filter and organize data for further analysis and usage.
+
+3. **Jump Server File Processing:**
    - Files collected from decommissioning servers are transferred to a designated jump server.
    - Scripts on the jump server filter out unnecessary information and format the data into YAML files compatible with Ansible.
 
-3. **Ansible Deployment:**
+4. **Ansible Deployment:**
    - Utilizes Ansible playbooks to deploy configurations and provision new servers.
    - YAML files generated from the processed data specify user attributes, ACLs, permissions, and other configurations required on the new servers.
-
-## Usage
-
-1. **Python Data Collection:**
-   - Run Python scripts on decommissioning servers to collect relevant data.
-
-2. **Jump Server File Processing:**
-   - Transfer collected files to the jump server.
-   - Execute scripts to filter and format the data into YAML files.
-
-3. **Ansible Deployment:**
-   - Run Ansible playbooks using the generated YAML files to provision new servers.
-
-
-
