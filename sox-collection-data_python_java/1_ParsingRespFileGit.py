@@ -59,7 +59,7 @@ def get_info():
 	    platform_name = lines.split(":")[7]; #print platform_name
 	    addit_info = ""
 	    #sqlupdate(addit_info, customer, first_resp_person, operation_system, platform_name, project_name, second_resp_person, server_name, system_name)
-	    #sqlupdate('additional', 'telenor', 'S.Marchuk', 'Linux', 'VMWare', 'S00007', 'S.Saenko', 'alt-cti2', 'S' )
+	    #sqlupdate('additional', 'ff', 'S.', 'Linux', 'VMWare', 'S00007', 'S.', 'alt-d', 'S' )
 	    #sqlselect('ns3')
 	    res_check_indb = (sqlselect(server_name))
 	    #print type(zz),len(zz)
