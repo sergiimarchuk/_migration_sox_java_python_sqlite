@@ -5,9 +5,6 @@ import sqlite3
 import glob
 import os
 import ast
-#import locale
-#import sys 
-#locale.setlocale( locale.LC_ALL, 'C.UTF-8' )
 
 #Current directory path
 _pwd_ = os.getcwd()
@@ -27,7 +24,6 @@ def sqlselect(server_name):
     var_srv = concur.fetchall()
       
     if var_srv is 'None':
-	#var_srv = str(concur.fetchall()).split(",")[1]
 	var_srv = '-------------------------------------|| This server ' + server_name + ' will add into list || ------------------------------------------------'
     else:
 	var_srv
@@ -45,11 +41,7 @@ def get_info():
     with open(_pwd_ + "/" + "responsibility-list.txt", "rb") as fp:
 	for lines in fp:  
 	    count = count +1 
-	    #print count 
-	    #print lines
-	    
 	    server_name = lines.split(":")[0]; print 'This server is in file ' + _pwd_ + "/" +'responsibility-list.txt' ,server_name
-	      
 	    first_resp_person = lines.split(":")[1]; #print first_resp_person
 	    second_resp_person = lines.split(":")[2]; #print second_resp_person
 	    customer = lines.split(":")[3]; #print customer
@@ -58,15 +50,8 @@ def get_info():
 	    operation_system = lines.split(":")[6]; #print operation_system
 	    platform_name = lines.split(":")[7]; #print platform_name
 	    addit_info = ""
-	    #sqlupdate(addit_info, customer, first_resp_person, operation_system, platform_name, project_name, second_resp_person, server_name, system_name)
-	    #sqlupdate('additional', 'ff', 'S.', 'Linux', 'VMWare', 'S00007', 'S.', 'alt-d', 'S' )
-	    #sqlselect('ns3')
 	    res_check_indb = (sqlselect(server_name))
-	    #print type(zz),len(zz)
 	    if len(res_check_indb) ==0:
 		sqlupdate(addit_info, customer, first_resp_person, operation_system, platform_name, project_name, second_resp_person, server_name, system_name)
-		#print "needs to insert"
 		
 get_info()
-
-
