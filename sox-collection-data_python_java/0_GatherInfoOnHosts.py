@@ -36,10 +36,6 @@ def run_ext_bin(arg1,arg2,arg3):
         print output
         return output.split(" ")[-6:]
 
-#print run_ext_bin("lastlog","-u","e213101")
-#print run_ext_bin("lastlog","-u","e220314")
-
-
 #Run command id for each of users on server. collect user name and groups into dictionary. users we got from passwd and doing pars for each of lines.
 def extract_groups():
   with open("/etc/passwd", "rb") as fp:
@@ -76,8 +72,6 @@ def extract_groups():
           for el_gr in grps_var:
             groups_var =  el_gr.split("(")[1].replace(")","")
             new_list.append([groups_var])
-          #print "groups is:",str(new_list).replace("[","").replace("]","").replace("'","").replace("\n","") #2
-
 
           #extract gecos, comments
           gecos_var = dict_collected_users.get("gecos"); #print "gecos:",gecos_var #3
@@ -93,9 +87,7 @@ def extract_groups():
             last_log_user_var='Never logged in'
             #print last_log_user_var
           else:
-            #print uname_var,"!!!!!!!!!!!!!!!!!!!!!",last_log_user_var
             print
-            ##print last_log_user_var," User name  is", uname_var
             if last_log_user_var[1] != '':
                 log_var_month=last_log_user_var[1]; print log_var_month; log_var_day_month=last_log_user_var[2]; print log_var_day_month;
                 log_var_year=last_log_user_var[5]; print log_var_year
@@ -108,16 +100,6 @@ def extract_groups():
                 print last_log_user_var,
 
 
-          #if len(qqq)==6:
-            #print "sixt"
-            #qqq='Never logged in'
-            #print qqq
-          #print (qqq)
-          #dict_user_var.update({'host_name':hostname_var})
-
-          #1
-          #print uname_var," ",str(new_list).replace("[","").replace("]","").replace("'","").replace("\n","")," ",gecos_var," ",home_dir_var," ",run_ext_bin("lastlog","-u",uname_var),
-          #print run_ext_bin("lastlog","-u",uname_var)
           supl_groups = str(new_list).replace("[","").replace("]","").replace("'","").replace("\n","")
 
           ##print gecos_var
@@ -128,12 +110,6 @@ def extract_groups():
              checklog_file(str(new_dict))
             except IndexError:
               print "UPS"
-            #print "!!it is done!!"
-
-          #
-          #new_dict.update({'user_name': uname_var,'groups':supl_groups,'home_directory': home_dir_var,'gecos':str(gecos_var),'lastlog': run_ext_bin("lastlog","-u",uname_var),'datetime_var': datetime_var,'time_var': time_var})
-
-          #with open ('aaaaaaaa.log', 'a') as f: f.write (str(new_dict) + '\n')
 
 extract_groups()
 
