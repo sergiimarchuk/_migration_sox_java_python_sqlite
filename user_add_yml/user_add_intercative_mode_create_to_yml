@@ -49,7 +49,6 @@ def ConstructUser():
         UserName = GetUserName()
         var_username= ("      " + "- user: name=" + "'" + UserName + "'")
         return var_username
-###
 
 def GetHomeDir():
         var_home = raw_input('Enter home if home is not standard otherwise home dir will be: ' + "/home/"+ dict_user.get('user_name') + ' :')
@@ -64,7 +63,6 @@ def GetShell():
                 var_shell = "/bin/bash"
         dict_user.update({'shell': var_shell})
         return var_shell
-##### password
 
 def GeneratePassword():
         gen_plain_password = "date +%s | sha256sum | base64 | head -c 21"
@@ -72,10 +70,9 @@ def GeneratePassword():
         var_hash = crypt.crypt(plain_password, crypt.mksalt())
         dict_user.update({'plain_password': plain_password, 'hash_password':var_hash})
         return var_hash
-GeneratePassword()
-#####
 
-#######
+GeneratePassword()
+
 #add groups
 def GetGroups():
         var_groups = raw_input('Enter Groups:')
@@ -88,9 +85,6 @@ def GetGroups():
 
 
 GetGroups()
-
-
-######
 
 def CreateYml():
         UserName = ConstructUser()
@@ -109,7 +103,6 @@ def CreateYml():
         else:
                 print ""
                 with open (file_log_name, 'a') as f: f.write (UserName  + Comment + var_HomeUser  + var_Shell + '\n')
-
 
 def CheckerYmlFile():
         if os.path.isfile(file_log_name) == False:
