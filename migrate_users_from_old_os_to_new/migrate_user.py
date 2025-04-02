@@ -2,19 +2,15 @@
 import socket
 import subprocess
 import os
-#import datetime
 from datetime import datetime
 datetime_var = datetime.now().strftime('%Y-%m-%d %H:%M:%S').split(" ")[0]  #+ "-" + datetime.now().strftime('%Y-%m-%d %H:%M:%S').split(" ")[1]
 time_var = datetime.now().strftime('%Y-%m-%d %H:%M:%S').split(" ")[1]; print (time_var+"t"+time_var)
 hostname_var = socket.gethostname()
 
 checklog_file_ = "local_report" #"local_report_" + hostname_var  + "_checklogdic.log-" + "-" + datetime_var + "t" + time_var
-
 dict_user_var = {}
-
 new_dict = {}
 group_list = []
-
 cwd = os.getcwd()
 
 def log_rm():
@@ -133,6 +129,3 @@ def prep_to_excel():
   with open((cwd + '/' + checklog_file_), "rb") as fc:
     for dic_line in fc:
       print dic_line,
-
-#prep_to_excel()
-print os.path.isfile(cwd + '/' + checklog_file_)
