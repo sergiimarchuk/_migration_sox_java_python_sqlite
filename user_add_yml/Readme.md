@@ -10,7 +10,7 @@ This Python script facilitates the creation of YAML files for Ansible, enabling 
 
 #### Requirements
 
-- Python 2.7 or higher
+- Python 2.7 or higher and less than 3.0 
 - Cryptography library (for password generation)
 
 #### Usage Example
