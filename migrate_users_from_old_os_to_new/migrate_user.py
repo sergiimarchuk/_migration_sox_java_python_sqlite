@@ -86,7 +86,7 @@ def extract_groups():
           #print "groups is:",str(new_list).replace("[","").replace("]","").replace("'","").replace("\n","") #2
 
           #extract shell
-          e_shell_var = dict_collected_users.get("shell_var"); print "BBBBBBBBBBBBBBBBBBBBBBBBBBB",shell_var
+          e_shell_var = dict_collected_users.get("shell_var")
 
           #extract gecos, comments
           gecos_var = dict_collected_users.get("gecos"); #print "gecos:",gecos_var #3
