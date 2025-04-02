@@ -102,9 +102,6 @@ def extract_groups():
             last_log_user_var='Never logged in'
             #print last_log_user_var
           else:
-            #print uname_var,"!!!!!!!!!!!!!!!!!!!!!",last_log_user_var
-            #print
-            ##print last_log_user_var," User name  is", uname_var
             try:
                 if last_log_user_var[1] != '':
                         log_var_month=last_log_user_var[1]; log_var_day_month=last_log_user_var[2]; #print log_var_day_month;
@@ -118,30 +115,17 @@ def extract_groups():
                         #print last_log_user_var,
             except IndexError:
                 last_log_user_var='Never logged in'
-
           # get shadow #grep username /etc/shadow |  awk -F':' '{print $2}'
           var_user_shadow = run_comm_get_shadow("grep",uname_var,"/etc/shadow").split(":")[1]
-          print uname_var, "  sssss", var_user_shadow
-
-
           supl_groups = str(new_list).replace("[","").replace("]","").replace("'","").replace("\n","")
-
-
-
           ##print gecos_var
-          if "EVRY" not in gecos_var:
+          if "CompanyName" not in gecos_var:
             try:
              #print uname_var,gecos_var
              new_dict.update({'user_name': uname_var,'groups':supl_groups,'home_directory': home_dir_var,'gecos':str(gecos_var),'lastlog': last_log_user_var,'datetime_var': datetime_var,'time_var': time_var,'shadow': var_user_shadow,'shell':e_shell_var})
              checklog_file(str(new_dict))
             except IndexError:
               print "UPS"
-            #print "!!it is done!!"
-
-          #
-          #new_dict.update({'user_name': uname_var,'groups':supl_groups,'home_directory': home_dir_var,'gecos':str(gecos_var),'lastlog': run_bin_get_lastlog("lastlog","-u",uname_var),'datetime_var': datetime_var,'time_var': time_var})
-
-          #with open ('aaaaaaaa.log', 'a') as f: f.write (str(new_dict) + '\n')
 
 extract_groups()
 
