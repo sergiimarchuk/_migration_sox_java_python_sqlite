@@ -57,7 +57,7 @@ def extract_groups():
           #get home directory for user
           home_dir_var = user_line.split(":")[5]
           #shell
-          shell_var =  (user_line.split(":")[6]).rstrip('\r\n'); print "AAAAAAAAAAAAAAAAAAAAAAAAAAAA",shell_var,len(shell_var)
+          shell_var =  (user_line.split(":")[6]).rstrip('\r\n')
 
           #add user's info into dictionary
           dict_user_var.update({'user_name': uname_var,'groups':groups_var,'home_directory': home_dir_var,'shell_var':shell_var})
