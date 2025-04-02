@@ -36,9 +36,6 @@ def run_bin_get_lastlog(arg1,arg2,arg3):
         #print output working for test
         return output.split(" ")[-6:]
 
-#print run_bin_get_lastlog("lastlog","-u","e213101")
-#print run_bin_get_lastlog("lastlog","-u","e220314")
-
 def run_comm_get_shadow(arg1,arg2,arg3):
         args = (arg1,arg2,arg3)
         popen = subprocess.Popen(args, stdout=subprocess.PIPE)
@@ -122,7 +119,7 @@ def extract_groups():
             except IndexError:
                 last_log_user_var='Never logged in'
 
-          # get shadow #grep e220314 /etc/shadow |  awk -F':' '{print $2}'
+          # get shadow #grep username /etc/shadow |  awk -F':' '{print $2}'
           var_user_shadow = run_comm_get_shadow("grep",uname_var,"/etc/shadow").split(":")[1]
           print uname_var, "  sssss", var_user_shadow
 
